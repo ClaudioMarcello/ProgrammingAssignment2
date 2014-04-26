@@ -1,18 +1,19 @@
-## A pair of functions that cache the inverse of a matrix
-## to avoid costly computation.
+## A pair of functions that cache the inverse of a matrix to avoid costly computation.
 
 
 ## This function creates a special "matrix" object that can cache its inverse.
+## "matrix" is a list of functions: get & set the matrix itself and get & set the inverse
 makeCacheMatrix <- function(x = numeric()) {
 	z <- NULL
 	set <- function(y) {
-		x <<- y
-		z <<- NULL
+		x <<- y				# set matrix
+		z <<- NULL			# set inverse to null
 	}
-	get <- function() x
-	setInverse <- function(w) z <<- w
-	getInverse <- function() z
+	get <- function() x			# get matrix
+	setInverse <- function(w) z <<- w	# set inverse
+	getInverse <- function() z		# return inverse
 	list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+                               			# return the "matrix"
 }
 
 
